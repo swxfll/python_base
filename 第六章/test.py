@@ -1,18 +1,10 @@
-mylist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+t = ('周杰轮', 11, ['football', 'music'])
 
-temp_list = []
+print(t.index(11))
+print(t[0])
 
-index = 0
-while index < len(mylist):
-    if mylist[index] % 2 == 0:
-        temp_list.append(mylist[index])
-    index += 1
+t[2].pop(0)
+print(t)
 
-print(temp_list)
-
-temp_list2 = []
-for i in mylist:
-    if i % 2 == 0:
-        temp_list2.append(i)
-
-print(temp_list2)
+t[2].append("coding")
+print(t)
