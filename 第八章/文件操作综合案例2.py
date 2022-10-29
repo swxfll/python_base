@@ -26,21 +26,13 @@ name,date,money,type,remarks
 bill_file = open("bill.txt", "r", encoding="UTF-8")
 back_file = open("bill.txt.bak", "a", encoding="UTF-8")
 
-# 遍历文件的每一行
 for line in bill_file:
-    # 将行转为列表
-    line = line.strip().split(",")
-    # 判断最后一个元素是否是测试
-    if line[-1] != "测试":
-        words = ""
-        # 遍历列表, 将每个元素存入到words中
-        # 如果是列表的最好一个元素则加换行符, 否则追加,
-        for i in range(len(line)):
-            if i != (len(line) - 1):
-                words += line[i] + ","
-            else:
-                words += line[i] + "\n"
-        back_file.write(str(words))
+    line = line.strip()
+    if line.split(",")[4] == "测试":
+        continue
+
+    back_file.write(line)
+    back_file.write("\n")
 
 back_file.close()
 bill_file.close()
